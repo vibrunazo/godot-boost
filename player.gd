@@ -24,16 +24,19 @@ func crash_sequence() -> void:
 	await get_tree().create_timer(2).timeout
 	get_tree().reload_current_scene()
 	
-func complete_level() -> void:
+func complete_level(next_level: String) -> void:
 	print('win')
 	is_ready = false
 	await get_tree().create_timer(3).timeout
-	get_tree().quit()
+	if next_level.is_empty():
+		get_tree().reload_current_scene()
+		return
+	get_tree().change_scene_to_file(next_level)
 
 func _on_body_entered(body: Node) -> void:
 	if not is_ready: return
 	print(body.name)
-	if body.is_in_group("goal"):
-		complete_level()
+	if body is Landingpad:
+		complete_level(body.next_level)
 	if body.is_in_group("hazard"):
 		crash_sequence()
