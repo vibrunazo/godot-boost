@@ -21,12 +21,14 @@ func _process(delta: float) -> void:
 func crash_sequence() -> void:
 	print('die')
 	is_ready = false
+	set_process(false)
 	await get_tree().create_timer(2).timeout
 	get_tree().reload_current_scene()
 	
 func complete_level(next_level: String) -> void:
 	print('win')
 	is_ready = false
+	set_process(false)
 	await get_tree().create_timer(3).timeout
 	if next_level.is_empty():
 		get_tree().reload_current_scene()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp6l4i4fihq6g"]
+[gd_scene load_steps=10 format=3 uid="uid://dnft5w5aleq6k"]
 
-[ext_resource type="Script" path="res://level/landingpad.gd" id="1_7fpc2"]
-[ext_resource type="PackedScene" uid="uid://bismadkmvj8uf" path="res://player.tscn" id="2_7mymj"]
+[ext_resource type="Script" path="res://level/landingpad.gd" id="1_n5r4w"]
+[ext_resource type="PackedScene" uid="uid://bismadkmvj8uf" path="res://player.tscn" id="2_gradv"]
+[ext_resource type="PackedScene" uid="uid://5muquh5or5qd" path="res://moving_hazard.tscn" id="3_08jxv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fgb5e"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,9 +26,6 @@ albedo_color = Color(0.232533, 0.8, 0.192, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8x0v"]
 albedo_color = Color(0.603922, 0.407843, 0.262745, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juhqf"]
-albedo_color = Color(0.81, 0.2106, 0.59022, 1)
-
 [node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -50,8 +48,8 @@ use_collision = true
 radius = 1.0
 height = 0.4
 material = SubResource("StandardMaterial3D_5i5bd")
-script = ExtResource("1_7fpc2")
-next_level = "res://level/level_4.tscn"
+script = ExtResource("1_n5r4w")
+next_level = "res://level/level.tscn"
 
 [node name="Floor" type="CSGBox3D" parent="." groups=["hazard"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
@@ -59,15 +57,13 @@ use_collision = true
 size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_p8x0v")
 
-[node name="Obstacle" type="CSGBox3D" parent="." groups=["hazard"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 0)
-use_collision = true
-size = Vector3(12, 2, 3)
-material = SubResource("StandardMaterial3D_juhqf")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.976672, 0.214735, 0, -0.214735, 0.976672, 0, 5.145, 11.27)
 fov = 60.0
 
-[node name="Player" parent="." instance=ExtResource("2_7mymj")]
+[node name="Player" parent="." instance=ExtResource("2_gradv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.4, 0)
+
+[node name="MovingHazard" parent="." instance=ExtResource("3_08jxv")]
+destination = Vector3(0, 2, 0)
+duration = 2.0
