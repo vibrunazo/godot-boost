@@ -18,14 +18,22 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("rotate_right"):
 		apply_torque(Vector3(0, 0, -torque_thrust * delta))
 
+func crash_sequence() -> void:
+	print('die')
+	is_ready = false
+	await get_tree().create_timer(2).timeout
+	get_tree().reload_current_scene()
+	
+func complete_level() -> void:
+	print('win')
+	is_ready = false
+	await get_tree().create_timer(3).timeout
+	get_tree().quit()
 
 func _on_body_entered(body: Node) -> void:
-	print(body.name)
 	if not is_ready: return
+	print(body.name)
 	if body.is_in_group("goal"):
-		print('win')
+		complete_level()
 	if body.is_in_group("hazard"):
-		print('die')
-		is_ready = false
-		await get_tree().create_timer(2).timeout
-		get_tree().reload_current_scene()
+		crash_sequence()
