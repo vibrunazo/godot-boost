@@ -1,7 +1,8 @@
 extends RigidBody3D
 
-@export var speed: float = 1000
-@export var turn_speed: float = 100
+## How much vertical force to apply when moving
+@export_range(750, 3000) var thrust: float = 1000
+@export_range(50, 300) var torque_thrust: float = 100
 
 @onready var ini_pos: Vector3 = position
 var is_ready: bool = true
@@ -10,12 +11,12 @@ var is_ready: bool = true
 func _process(delta: float) -> void:
 	if not is_ready: return
 	if Input.is_action_pressed("boost"):
-		apply_central_force(basis.y * delta * speed)
+		apply_central_force(basis.y * delta * thrust)
 	
 	if Input.is_action_pressed("rotate_left"):
-		apply_torque(Vector3(0, 0, turn_speed * delta))
+		apply_torque(Vector3(0, 0, torque_thrust * delta))
 	if Input.is_action_pressed("rotate_right"):
-		apply_torque(Vector3(0, 0, -turn_speed * delta))
+		apply_torque(Vector3(0, 0, -torque_thrust * delta))
 
 
 func _on_body_entered(body: Node) -> void:
