@@ -4,6 +4,9 @@ extends RigidBody3D
 @export_range(750, 3000) var thrust: float = 1000
 @export_range(50, 300) var torque_thrust: float = 100
 
+@onready var explosion_audio: AudioStreamPlayer = $ExplosionAudio
+@onready var success_audio: AudioStreamPlayer = $SuccessAudio
+
 @onready var ini_pos: Vector3 = position
 var is_ready: bool = true
 
@@ -18,17 +21,21 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("rotate_right"):
 		apply_torque(Vector3(0, 0, -torque_thrust * delta))
 
-func crash_sequence() -> void:
-	print('die')
+func disable_controls() -> void:
 	is_ready = false
 	set_process(false)
-	await get_tree().create_timer(2).timeout
+	
+func crash_sequence() -> void:
+	print('die')
+	disable_controls()
+	explosion_audio.play()
+	await get_tree().create_timer(3).timeout
 	get_tree().reload_current_scene()
 	
 func complete_level(next_level: String) -> void:
 	print('win')
-	is_ready = false
-	set_process(false)
+	disable_controls()
+	success_audio.play()
 	await get_tree().create_timer(3).timeout
 	if next_level.is_empty():
 		get_tree().reload_current_scene()
