@@ -30,6 +30,7 @@ radial_segments = 32
 rings = 16
 
 [node name="BoosterParticles" type="GPUParticles3D"]
+emitting = false
 amount = 32
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_fgg2i")

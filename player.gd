@@ -11,6 +11,8 @@ extends RigidBody3D
 @onready var booster_particles: GPUParticles3D = $BoosterParticles
 @onready var right_booster_particles: GPUParticles3D = $RightBoosterParticles
 @onready var left_booster_particles: GPUParticles3D = $LeftBoosterParticles
+@onready var explosion_particles: GPUParticles3D = $ExplosionParticles
+@onready var success_particles: GPUParticles3D = $SuccessParticles
 
 @onready var ini_pos: Vector3 = position
 
@@ -61,6 +63,7 @@ func crash_sequence() -> void:
 	print('die')
 	disable_controls()
 	explosion_audio.play()
+	explosion_particles.emitting = true
 	await get_tree().create_timer(3).timeout
 	get_tree().reload_current_scene()
 	
@@ -68,6 +71,7 @@ func complete_level(next_level: String) -> void:
 	print('win')
 	disable_controls()
 	success_audio.play()
+	success_particles.emitting = true
 	await get_tree().create_timer(3).timeout
 	if next_level.is_empty():
 		get_tree().reload_current_scene()
