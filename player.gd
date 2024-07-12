@@ -7,8 +7,13 @@ extends RigidBody3D
 @onready var explosion_audio: AudioStreamPlayer = $ExplosionAudio
 @onready var success_audio: AudioStreamPlayer = $SuccessAudio
 @onready var rocket_audio: AudioStreamPlayer3D = $RocketAudio
+@onready var rcs_audio: AudioStreamPlayer3D = $RCSAudio
+@onready var booster_particles: GPUParticles3D = $BoosterParticles
+@onready var right_booster_particles: GPUParticles3D = $RightBoosterParticles
+@onready var left_booster_particles: GPUParticles3D = $LeftBoosterParticles
 
 @onready var ini_pos: Vector3 = position
+
 var is_ready: bool = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,17 +23,39 @@ func _process(delta: float) -> void:
 		apply_central_force(basis.y * delta * thrust)
 		if not rocket_audio.playing:
 			rocket_audio.play()
+			booster_particles.emitting = true
 	else:
 		rocket_audio.stop()
+		booster_particles.emitting = false
 	
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque(Vector3(0, 0, torque_thrust * delta))
+		if not rcs_audio.playing:
+			rcs_audio.play()
+		right_booster_particles.emitting = true
+	else:
+		right_booster_particles.emitting = false
+		
 	if Input.is_action_pressed("rotate_right"):
 		apply_torque(Vector3(0, 0, -torque_thrust * delta))
+		if not rcs_audio.playing:
+			rcs_audio.play()
+		left_booster_particles.emitting = true
+	else:
+		left_booster_particles.emitting = false
+		#if not Input.is_action_pressed("rotate_right"):
+			#rcs_audio.stop()
+	if not Input.is_action_pressed("rotate_right") and not Input.is_action_pressed("rotate_left"):
+		rcs_audio.stop()
 
 func disable_controls() -> void:
 	is_ready = false
 	set_process(false)
+	rocket_audio.stop()
+	booster_particles.emitting = false
+	right_booster_particles.emitting = false
+	left_booster_particles.emitting = false
+	rcs_audio.stop()
 	
 func crash_sequence() -> void:
 	print('die')
