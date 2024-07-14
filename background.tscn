@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://xyb6tv81oggl"]
+[gd_scene load_steps=5 format=3 uid="uid://xyb6tv81oggl"]
 
 [ext_resource type="Environment" uid="uid://ba2kolet8w6jn" path="res://mat/environment.tres" id="1_ibb8n"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xy3bs"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nuq7f"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_xy3bs")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8x0v"]
 albedo_color = Color(0.603922, 0.407843, 0.262745, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_nuq7f")
+rim_enabled = true
+rim = 0.1
 
 [node name="Background" type="Node3D"]
 
@@ -11,11 +22,13 @@ albedo_color = Color(0.603922, 0.407843, 0.262745, 1)
 environment = ExtResource("1_ibb8n")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(0.984808, -0.111619, 0.133022, 0, 0.766044, 0.642788, -0.173648, -0.633022, 0.754407, 0, 25, 0)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.544498, 0.7588, -0.357415, -0.0919638, 0.477561, 0.873772, 0.833706, -0.442898, 0.329813, 0, 0, 0)
+transform = Transform3D(0.544498, 0.7588, -0.357415, -0.304609, 0.575919, 0.758638, 0.781496, -0.304205, 0.544724, 0, 25, 6)
+visible = false
 light_energy = 0.3
 shadow_enabled = true
 
@@ -111,7 +124,7 @@ material = SubResource("StandardMaterial3D_p8x0v")
 metadata/_edit_group_ = true
 
 [node name="BGWall12" type="CSGBox3D" parent="Floor" groups=["hazard"]]
-transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, -2.35085, 16.0893, -11)
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, -2.35085, 16.0893, -10)
 use_collision = true
 size = Vector3(4, 10, 4)
 material = SubResource("StandardMaterial3D_p8x0v")
@@ -210,3 +223,21 @@ material = SubResource("StandardMaterial3D_p8x0v")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.976672, 0.214735, 0, -0.214735, 0.976672, 0, 9, 12)
 fov = 60.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+light_color = Color(1, 1, 0.88, 1)
+light_energy = 15.0
+omni_range = 12.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 8, 0)
+light_color = Color(1, 1, 0.88, 1)
+light_energy = 15.0
+omni_range = 12.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 8, 0)
+light_color = Color(1, 1, 0.88, 1)
+light_energy = 15.0
+omni_range = 12.0

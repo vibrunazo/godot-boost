@@ -13,6 +13,7 @@ extends RigidBody3D
 @onready var left_booster_particles: GPUParticles3D = $LeftBoosterParticles
 @onready var explosion_particles: GPUParticles3D = $ExplosionParticles
 @onready var success_particles: GPUParticles3D = $SuccessParticles
+@onready var engine_light: OmniLight3D = $EngineLight
 
 @onready var ini_pos: Vector3 = position
 
@@ -26,9 +27,11 @@ func _process(delta: float) -> void:
 		if not rocket_audio.playing:
 			rocket_audio.play()
 			booster_particles.emitting = true
+			engine_light.visible = true
 	else:
 		rocket_audio.stop()
 		booster_particles.emitting = false
+		engine_light.visible = false
 	
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque(Vector3(0, 0, torque_thrust * delta))

@@ -192,4 +192,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.206
 material_override = ExtResource("8_vhhlg")
 mesh = SubResource("PrismMesh_8tyoj")
 
+[node name="EngineLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04525, 0)
+visible = false
+light_energy = 8.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
