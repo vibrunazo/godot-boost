@@ -145,7 +145,7 @@ material = SubResource("StandardMaterial3D_p8x0v")
 metadata/_edit_group_ = true
 
 [node name="BGWall3" type="CSGBox3D" parent="Floor" groups=["hazard"]]
-transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 3, 5, -6)
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 3, 5, -8)
 use_collision = true
 size = Vector3(4, 10, 4)
 material = SubResource("StandardMaterial3D_p8x0v")
@@ -166,7 +166,7 @@ material = SubResource("StandardMaterial3D_p8x0v")
 metadata/_edit_group_ = true
 
 [node name="BGWall6" type="CSGBox3D" parent="Floor" groups=["hazard"]]
-transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 4, 2, -4)
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 4, 2, -6)
 use_collision = true
 size = Vector3(4, 10, 4)
 material = SubResource("StandardMaterial3D_p8x0v")
@@ -227,17 +227,20 @@ fov = 60.0
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
 light_color = Color(1, 1, 0.88, 1)
-light_energy = 15.0
-omni_range = 12.0
+light_energy = 10.0
+omni_range = 15.0
+omni_attenuation = 2.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 8, 0)
 light_color = Color(1, 1, 0.88, 1)
-light_energy = 15.0
-omni_range = 12.0
+light_energy = 10.0
+omni_range = 15.0
+omni_attenuation = 2.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 8, 0)
 light_color = Color(1, 1, 0.88, 1)
-light_energy = 15.0
-omni_range = 12.0
+light_energy = 10.0
+omni_range = 15.0
+omni_attenuation = 2.0

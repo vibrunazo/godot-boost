@@ -5,6 +5,8 @@ extends Node
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_fullscreen"):
 		toggle_fullscreen()
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 		
 func is_fullscreen() -> bool:
 	return DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN or DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
