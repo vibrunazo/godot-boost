@@ -1,0 +1,212 @@
+[gd_scene load_steps=3 format=3 uid="uid://xyb6tv81oggl"]
+
+[ext_resource type="Environment" uid="uid://ba2kolet8w6jn" path="res://mat/environment.tres" id="1_ibb8n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8x0v"]
+albedo_color = Color(0.603922, 0.407843, 0.262745, 1)
+
+[node name="Background" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_ibb8n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.544498, 0.7588, -0.357415, -0.0919638, 0.477561, 0.873772, 0.833706, -0.442898, 0.329813, 0, 0, 0)
+light_energy = 0.3
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="." groups=["hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+use_collision = true
+size = Vector3(30, 8, 5)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_lock_ = true
+
+[node name="wall" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -15, 7, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="wall9" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -15, 10, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, -5, 5, -8)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall15" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, -7, 3, -7)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall16" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, -14, 3, -12)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall17" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, -15, 0, -9)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall2" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 1, 8, -11)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall7" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, -2, 19, -7)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall8" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, 6, 19, -7)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall9" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, 6, 17, -4)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall10" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, -8, 17, -4)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall11" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, 5.57735, 15.0893, -12)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall12" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, -2.35085, 16.0893, -11)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall13" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, 3.7735, 17.8214, -9)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall14" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, -9.2265, 15.8214, -9)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall3" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 3, 5, -6)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall4" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 9, 4, -9)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall5" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 11, 2, -4)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="BGWall6" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.183013, -0.683013, -0.707107, 0.965926, 0.258819, 0, 0.183013, -0.683013, 0.707107, 4, 2, -4)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+metadata/_edit_group_ = true
+
+[node name="wall3" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -10.9347, 16.9004, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+
+[node name="wall4" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -5.3286, 18.504, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+
+[node name="wall5" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -0.688438, 20.3665, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+
+[node name="wall6" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 3.95172, 22.229, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+
+[node name="wall7" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 11, 18, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+
+[node name="wall8" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 6, 20, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+
+[node name="wall2" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 14, 7, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+
+[node name="wall10" type="CSGBox3D" parent="Floor" groups=["hazard"]]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 14, 12, 0)
+use_collision = true
+size = Vector3(4, 10, 4)
+material = SubResource("StandardMaterial3D_p8x0v")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.976672, 0.214735, 0, -0.214735, 0.976672, 0, 9, 12)
+fov = 60.0

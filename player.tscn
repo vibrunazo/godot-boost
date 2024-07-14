@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bb10maw0imsox" path="res://audio/SFX - Success.ogg" id="3_0c3rl"]
 [ext_resource type="AudioStream" uid="uid://j1xet8fldsrn" path="res://audio/SFX - Main engine thrust.ogg" id="4_1ua8y"]
 [ext_resource type="PackedScene" uid="uid://ux6ivcx1ovdp" path="res://fx/booster_particles.tscn" id="5_up1v7"]
-[ext_resource type="PackedScene" path="res://fx/success_particles.tscn" id="6_jg1cb"]
+[ext_resource type="PackedScene" uid="uid://jfwajmrh6ca7" path="res://fx/success_particles.tscn" id="6_jg1cb"]
 [ext_resource type="PackedScene" uid="uid://cqx6cs15phsy2" path="res://fx/explosion_particles.tscn" id="7_v6ye4"]
 [ext_resource type="Material" uid="uid://bpq1e3hlvpaiq" path="res://mat/starship-steel.tres" id="8_vhhlg"]
 

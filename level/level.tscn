@@ -1,52 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1p5m6h7g2at"]
+[gd_scene load_steps=6 format=3 uid="uid://d1p5m6h7g2at"]
 
-[ext_resource type="Environment" uid="uid://ba2kolet8w6jn" path="res://mat/environment.tres" id="1_3kha5"]
 [ext_resource type="PackedScene" uid="uid://bismadkmvj8uf" path="res://player.tscn" id="1_jvtu1"]
 [ext_resource type="Script" path="res://level/landingpad.gd" id="1_sgjvx"]
+[ext_resource type="PackedScene" uid="uid://xyb6tv81oggl" path="res://background.tscn" id="2_y7l5j"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtrpg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qadim"]
 albedo_color = Color(0.3096, 0.50224, 0.86, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i5bd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hljs"]
 albedo_color = Color(0.232533, 0.8, 0.192, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8x0v"]
-albedo_color = Color(0.603922, 0.407843, 0.262745, 1)
 
 [node name="Level" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_3kha5")
+[node name="Player" parent="." instance=ExtResource("1_jvtu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.4, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
+[node name="Background" parent="." instance=ExtResource("2_y7l5j")]
 
 [node name="Launchpad" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.2, 0)
 use_collision = true
 radius = 1.0
 height = 0.4
-material = SubResource("StandardMaterial3D_vtrpg")
+material = SubResource("StandardMaterial3D_qadim")
 
 [node name="Landingpad" type="CSGCylinder3D" parent="." groups=["goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.2, 0)
 use_collision = true
 radius = 1.0
 height = 0.4
-material = SubResource("StandardMaterial3D_5i5bd")
+material = SubResource("StandardMaterial3D_2hljs")
 script = ExtResource("1_sgjvx")
 next_level = "res://level/level_2.tscn"
-
-[node name="Floor" type="CSGBox3D" parent="." groups=["hazard"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(30, 8, 5)
-material = SubResource("StandardMaterial3D_p8x0v")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.976672, 0.214735, 0, -0.214735, 0.976672, 0, 5.145, 11.27)
-fov = 60.0
-
-[node name="Player" parent="." instance=ExtResource("1_jvtu1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.4, 0)
